@@ -1717,7 +1717,10 @@ class SecurityGroup(TaggedEC2Resource):
         self.name = name
         self.description = description
         self.ingress_rules = []
-        self.egress_rules = [SecurityRule("-1", None, None, ["0.0.0.0/0"], [])]
+        self.egress_rules = [
+            SecurityRule("-1", None, None, ["0.0.0.0/0"], []),
+            SecurityRule("-1", None, None, [], [])
+        ]
         self.enis = {}
         self.vpc_id = vpc_id
         self.owner_id = OWNER_ID
